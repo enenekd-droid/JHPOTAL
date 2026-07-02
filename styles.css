@@ -1,0 +1,314 @@
+:root {
+  --ink: #17212b;
+  --muted: #637381;
+  --paper: #ffffff;
+  --page: #eef5f2;
+  --line: rgba(23, 33, 43, 0.12);
+  --teal: #168f8b;
+  --navy: #223a5e;
+  --gold: #f2b84b;
+  --rose: #d95d76;
+  --shadow: 0 18px 44px rgba(20, 43, 58, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Segoe UI", "Malgun Gothic", Arial, sans-serif;
+  background:
+    linear-gradient(135deg, rgba(22, 143, 139, 0.12), transparent 34%),
+    linear-gradient(215deg, rgba(217, 93, 118, 0.1), transparent 34%),
+    linear-gradient(0deg, rgba(242, 184, 75, 0.12), transparent 42%),
+    var(--page);
+}
+
+.portal {
+  width: min(1100px, calc(100% - 36px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 44px 0;
+  display: grid;
+  align-content: center;
+  gap: 22px;
+}
+
+.hero {
+  min-height: 250px;
+  padding: clamp(24px, 4vw, 38px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 310px);
+  gap: 26px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.95), rgba(255, 251, 240, 0.78)),
+    linear-gradient(135deg, rgba(34, 58, 94, 0.1), rgba(22, 143, 139, 0.08));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.eyebrow {
+  width: fit-content;
+  margin: 0 0 12px;
+  padding: 7px 11px;
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border: 1px solid rgba(22, 143, 139, 0.24);
+  border-radius: 999px;
+  background: rgba(22, 143, 139, 0.08);
+}
+
+h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(2.25rem, 5.4vw, 4.15rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.hero__text {
+  max-width: 560px;
+  margin: 14px 0 0;
+  color: #41505f;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.compass-illustration {
+  position: relative;
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+}
+
+.compass {
+  position: relative;
+  width: min(100%, 220px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(34, 58, 94, 0.12);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #ffffff 0 30%, transparent 31%),
+    conic-gradient(from 45deg, rgba(34, 58, 94, 0.08), rgba(22, 143, 139, 0.16), rgba(242, 184, 75, 0.16), rgba(34, 58, 94, 0.08)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(231, 246, 242, 0.86));
+  box-shadow: 0 16px 30px rgba(34, 58, 94, 0.14);
+}
+
+.compass::before,
+.compass::after,
+.compass__ring,
+.compass__needle,
+.compass__center,
+.compass__mark {
+  position: absolute;
+  display: block;
+}
+
+.compass::before {
+  content: "";
+  inset: 16px;
+  border: 2px solid rgba(34, 58, 94, 0.18);
+  border-radius: 50%;
+}
+
+.compass::after {
+  content: "";
+  inset: 37px;
+  border: 1px dashed rgba(34, 58, 94, 0.22);
+  border-radius: 50%;
+}
+
+.compass__ring {
+  inset: 28px;
+  border: 8px solid rgba(255, 255, 255, 0.74);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(34, 58, 94, 0.12);
+}
+
+.compass__needle {
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 88px;
+  transform-origin: 50% 100%;
+  clip-path: polygon(50% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.compass__needle--north {
+  background: linear-gradient(180deg, var(--rose), #b64058);
+  transform: translate(-50%, -100%) rotate(24deg);
+}
+
+.compass__needle--south {
+  background: linear-gradient(180deg, #7ca2c6, var(--navy));
+  transform: translate(-50%, -100%) rotate(204deg);
+}
+
+.compass__center {
+  left: 50%;
+  top: 50%;
+  width: 28px;
+  aspect-ratio: 1;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 14px rgba(34, 58, 94, 0.18);
+}
+
+.compass__mark {
+  color: var(--navy);
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.compass__mark--north {
+  left: 50%;
+  top: 15px;
+  transform: translateX(-50%);
+}
+
+.compass__mark--east {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.compass__mark--south {
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+}
+
+.compass__mark--west {
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.apps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 420px));
+  gap: 24px;
+  justify-content: center;
+}
+
+.app-button {
+  aspect-ratio: 1;
+  min-height: 0;
+  padding: clamp(24px, 3.4vw, 38px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 28px rgba(20, 43, 58, 0.1);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.app-button:hover,
+.app-button:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(22, 143, 139, 0.44);
+  box-shadow: 0 18px 34px rgba(20, 43, 58, 0.15);
+  outline: none;
+}
+
+.app-button__icon {
+  width: clamp(76px, 7vw, 96px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  font-weight: 900;
+  border-radius: 8px;
+}
+
+.app-button--screen .app-button__icon {
+  background: linear-gradient(135deg, var(--navy), #34619a);
+}
+
+.app-button--master .app-button__icon {
+  background: linear-gradient(135deg, var(--teal), #2fb39d);
+}
+
+.app-button strong {
+  display: block;
+  font-size: clamp(1.55rem, 3.1vw, 2.28rem);
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+.app-button small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.16rem);
+  font-weight: 700;
+  word-break: keep-all;
+}
+
+@media (max-width: 760px) {
+  .portal {
+    align-content: start;
+    padding: 24px 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .compass-illustration {
+    min-height: 190px;
+  }
+
+  .apps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .portal {
+    width: min(100% - 22px, 1100px);
+  }
+
+  .hero {
+    padding: 24px 18px;
+  }
+
+  .app-button {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .app-button__icon {
+    width: 58px;
+  }
+
+  .app-button strong {
+    font-size: 1.18rem;
+  }
+
+  .app-button small {
+    font-size: 0.86rem;
+  }
+}
